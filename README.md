@@ -6,5 +6,6 @@
 - [x] Adafruit Unified Sensor
 - [x] Adafruit Bus IO
 - [x] Adafruit MPU6050
-
+- [x] ESPAsyncWebServer
+- [x] TCP assíncrono
  
