@@ -6,6 +6,6 @@
 - [x] Adafruit Unified Sensor
 - [x] Adafruit Bus IO
 - [x] Adafruit MPU6050
-- [x] ESPAsyncWebServer
-- [x] AsyncTCP
+- [x] [ESPAsyncWebServer](https://github.com/me-no-dev/ESPAsyncWebServer/archive/master.zip)
+- [x] [AsyncTCP](https://github.com/me-no-dev/AsyncTCP/archive/master.zip)
  
