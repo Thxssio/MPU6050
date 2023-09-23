@@ -9,6 +9,9 @@
 - [x] [ESPAsyncWebServer](https://github.com/me-no-dev/ESPAsyncWebServer/archive/master.zip)
 - [x] [AsyncTCP](https://github.com/me-no-dev/AsyncTCP/archive/master.zip)
 
+```
+http://arduino.esp8266.com/stable/package_esp8266com_index.json, https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+```
 ***PlatiformIO:***
 ```
 lib_deps =   adafruit/Adafruit MPU6050 @ ^2.0.3
