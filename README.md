@@ -16,7 +16,7 @@ lib_deps =   adafruit/Adafruit MPU6050 @ ^2.0.3
     me-no-dev/ESP Async WebServer @ ^1.2.3
     arduino-libraries/Arduino_JSON @ 0.1.0
 ```
-
+##
  ***ESP32 Filesystem Uploader [Download](https://github.com/me-no-dev/arduino-esp32fs-plugin/releases/)***
 
  `Encontre a localização do seu Sketchbook. No seu Arduino IDE, vá em Arquivo > Preferências e verifique a localização do seu Sketchbook. No meu caso, está no seguinte caminho:C:\Usuários\thxssio\Documentos\Arduino`
