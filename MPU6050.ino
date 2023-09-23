@@ -8,20 +8,13 @@
 #include <Arduino_JSON.h>
 #include "SPIFFS.h"
 
-// Replace with your network credentials
-const char* ssid = "REPLACE_WITH_YOUR_SSID";
-const char* password = "REPLACE_WITH_YOUR_PASSWORD";
+const char* ssid = "THASSIO";
+const char* password = "********";
 
-// Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
-
-// Create an Event Source on /events
 AsyncEventSource events("/events");
-
-// Json Variable to Hold Sensor Readings
 JSONVar readings;
 
-// Timer variables
 unsigned long lastTime = 0;  
 unsigned long lastTimeTemperature = 0;
 unsigned long lastTimeAcc = 0;
@@ -29,21 +22,18 @@ unsigned long gyroDelay = 10;
 unsigned long temperatureDelay = 1000;
 unsigned long accelerometerDelay = 200;
 
-// Create a sensor object
-Adafruit_MPU6050 mpu;
 
+Adafruit_MPU6050 mpu;
 sensors_event_t a, g, temp;
 
 float gyroX, gyroY, gyroZ;
 float accX, accY, accZ;
 float temperature;
-
-//Gyroscope sensor deviation
 float gyroXerror = 0.07;
 float gyroYerror = 0.03;
 float gyroZerror = 0.01;
 
-// Init MPU6050
+
 void initMPU(){
   if (!mpu.begin()) {
     Serial.println("Failed to find MPU6050 chip");
@@ -76,6 +66,7 @@ void initWiFi() {
 }
 
 String getGyroReadings(){
+  float RadToGraus = 57.2958;
   mpu.getEvent(&a, &g, &temp);
 
   float gyroX_temp = g.gyro.x;
@@ -93,9 +84,9 @@ String getGyroReadings(){
     gyroZ += gyroZ_temp/90.00;
   }
 
-  readings["gyroX"] = String(gyroX);
-  readings["gyroY"] = String(gyroY);
-  readings["gyroZ"] = String(gyroZ);
+  readings["gyroX"] = String(gyroX*RadToGraus);
+  readings["gyroY"] = String(gyroY*RadToGraus);
+  readings["gyroZ"] = String(gyroZ*RadToGraus);
 
   String jsonString = JSON.stringify(readings);
   return jsonString;
@@ -103,7 +94,6 @@ String getGyroReadings(){
 
 String getAccReadings() {
   mpu.getEvent(&a, &g, &temp);
-  // Get current acceleration values
   accX = a.acceleration.x;
   accY = a.acceleration.y;
   accZ = a.acceleration.z;
@@ -124,7 +114,7 @@ void setup() {
   Serial.begin(115200);
   initWiFi();
   initSPIFFS();
-  initMPU();
+  //initMPU();
 
   // Handle Web Server
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
@@ -160,8 +150,7 @@ void setup() {
     if(client->lastId()){
       Serial.printf("Client reconnected! Last message ID that it got is: %u\n", client->lastId());
     }
-    // send event with message "hello!", id current millis
-    // and set reconnect delay to 1 second
+
     client->send("hello!", NULL, millis(), 10000);
   });
   server.addHandler(&events);
