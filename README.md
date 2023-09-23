@@ -7,5 +7,5 @@
 - [x] Adafruit Bus IO
 - [x] Adafruit MPU6050
 - [x] ESPAsyncWebServer
-- [x] TCP assíncrono
+- [x] AsyncTCP
  
