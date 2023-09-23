@@ -9,6 +9,9 @@
 - [x] [ESPAsyncWebServer](https://github.com/me-no-dev/ESPAsyncWebServer/archive/master.zip)
 - [x] [AsyncTCP](https://github.com/me-no-dev/AsyncTCP/archive/master.zip)
 
+```
+http://arduino.esp8266.com/stable/package_esp8266com_index.json, https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+```
 ***PlatiformIO:***
 ```
 lib_deps =   adafruit/Adafruit MPU6050 @ ^2.0.3
@@ -16,6 +19,13 @@ lib_deps =   adafruit/Adafruit MPU6050 @ ^2.0.3
     me-no-dev/ESP Async WebServer @ ^1.2.3
     arduino-libraries/Arduino_JSON @ 0.1.0
 ```
+
+`
+Clique no ícone PIO na barra lateral esquerda. As tarefas do projeto devem ser abertas.`
+`Selecione env:esp32doit-devkit-v1 (pode ser um pouco diferente dependendo da placa que você está usando).`
+`Expanda o menu Plataforma .`
+`Selecione Construir imagem do sistema de arquivos.`
+`Por fim, clique em Carregar imagem do sistema de arquivos .`
 ##
  ***ESP32 Filesystem Uploader [Download](https://github.com/me-no-dev/arduino-esp32fs-plugin/releases/)***
 
